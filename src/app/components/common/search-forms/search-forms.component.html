@@ -1,7 +1,5 @@
 <form>
   <div class="row m-0 align-items-center">
-
-
       <div class="col-lg-3 col-md-6 p-0">
           <div class="form-group">
               <label><i class="flaticon-pin"></i></label>
@@ -11,10 +9,6 @@
 
       <div class="col-lg-3 col-md-12 p-0">
         <div class="form-group">
-
-
-
-
               <p-calendar [inputStyle]="{'border':'0px'}"
                [(ngModel)]="start" [showTime]="true"
                  [touchUI]="false"
@@ -39,24 +33,15 @@
             <p-calendar [inputStyle]="{'border':'0px'}"
             [(ngModel)]="end" [showTime]="true" name="end"
             inputId="time" [showIcon]="false"
-
               [minDate]="minEndDate"
              (onSelect)="onselectend(end)"
             ></p-calendar>
                 </div>
       </div>
 
-
-
-
-
-
-
       <div class="col-lg-3 col-md-12 p-0">
           <div class="submit-btn">
-
               <button (click)="search()" type="button"  class="default-btn">Chercher</button>
-
           </div>
       </div>
   </div>

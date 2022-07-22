@@ -144,6 +144,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { DisputesComponent } from './components/pages/dashboard/disputes/disputes.component';
 import { CashoutComponent } from './components/pages/dashboard/cashout/cashout.component';
 import { CreateNewCheckoutAmountComponent } from './components/pages/dashboard/create-new-checkout-amount/create-new-checkout-amount.component';
+import { SercurityDepositComponent } from './components/pages/sercurity-deposit/sercurity-deposit.component';
 
     @NgModule({
   declarations: [
@@ -219,6 +220,7 @@ import { CreateNewCheckoutAmountComponent } from './components/pages/dashboard/c
     PlacesComponent,
     SamllFooterComponent,
 
+    SercurityDepositComponent,
     DetailComponent,
     //CarComponent,
     ListingComponent,
@@ -243,6 +245,7 @@ import { CreateNewCheckoutAmountComponent } from './components/pages/dashboard/c
     DisputesComponent,
     CashoutComponent,
     CreateNewCheckoutAmountComponent,
+    SercurityDepositComponent,
 
   ],
   imports: [

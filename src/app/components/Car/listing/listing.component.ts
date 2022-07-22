@@ -48,7 +48,7 @@ export class ListingComponent implements OnInit {
   {
     this.res.GetAvailableReservation(start,end).subscribe(
       data => {
-        this.results = data;
+        this.results = data ;
         console.log(this.results);
 
       }

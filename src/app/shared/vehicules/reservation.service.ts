@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 
 //const baseUrl = "https://tera3.dev.smartegy.ca/backend/public/api/" ;
 const baseUrl = "http://127.0.0.1:8000/api/" ;
+const DepositbaseUrl = "http://127.0.0.1:8000/api/submit_security_deposit" ;
+const BookingbaseUrl = "http://127.0.0.1:8000/api/booking_payemnt" ;
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +48,18 @@ export class ReservationService {
 
   validatePayment(user_id,amount, order_number, transaction_id){
     return this.http.post(baseUrl+"validate_payment",{user_id:user_id,amount:amount, order_number:order_number, transaction_id:transaction_id});
+  }
+  create(data)  {
+    const HttpUploadOptions = {
+      headers: new HttpHeaders({ "Content-Type": "multipart/form-data"})
+    }
+    return this.http.post(DepositbaseUrl+"", data);
+  }
+  bookingCreate(data)  {
+    const HttpUploadOptions = {
+      headers: new HttpHeaders({ "Content-Type": "multipart/form-data"})
+    }
+    return this.http.post(BookingbaseUrl+"", data);
   }
 
 }

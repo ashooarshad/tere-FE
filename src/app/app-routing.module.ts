@@ -59,6 +59,7 @@ import { Steps3Component } from './components/Car/reserver/steps3/steps3.compone
 import { BookComponent } from './components/Car/book/book.component';
 import { DisputesComponent } from './components/pages/dashboard/disputes/disputes.component';
 import { CashoutComponent } from './components/pages/dashboard/cashout/cashout.component';
+import { SercurityDepositComponent } from './components/pages/sercurity-deposit/sercurity-deposit.component';
 
 
 const routes: Routes = [
@@ -98,6 +99,8 @@ const routes: Routes = [
     {path: 'dashboard-bookings', component: DashboardBookingsComponent},
     {path: 'disputes/list', component: DisputesComponent},
     {path: 'cashout/list', component: CashoutComponent},
+    {path: 'security-deposit', component: SercurityDepositComponent},
+
     {path: 'dashboard-wallet', component: DashboardWalletComponent},
     {path: 'dashboard-reviews', component: DashboardReviewsComponent},
     {path: 'dashboard-invoice', component: DashboardInvoiceComponent},
