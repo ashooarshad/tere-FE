@@ -1,0 +1,30 @@
+@import "../../../dashboard/dashboard.component.scss" ;
+//@import "../../home-demo-one/homeone-listings/homeone-listings.component.scss";
+
+@import "../../../home-demo-one/homeone-listings/homeone-listings.component.scss";
+
+.no-content-area{
+  padding: {
+   // right: 30px;
+    left: 280px;
+    top: 120px;
+};
+.single-listings-box{
+
+  height: 260px;
+  width: auto;
+  border-radius: 5px;
+  margin-bottom: 30px;
+
+img {
+  height: 260px;
+  width: 100%;
+
+  background-size: 'cover';
+  object-fit: cover;
+  background-repeat: 'no-repeat';
+  background-position: center;}
+
+
+}}
+

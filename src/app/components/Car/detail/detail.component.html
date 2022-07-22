@@ -1,0 +1,584 @@
+
+<app-navbar-style-one></app-navbar-style-one>
+<!-- Start Listings Details Area -->
+<section class="listings-details-area pb-70">
+    <div class="listings-details-image">
+      <!--<img src="assets/img/cars/BMW iX/BMW-MY23-iX-Gallery-Interior-15.jpg"   alt="image">-->
+      <img src="{{res.photo}}"   alt="image">
+        <div class="container">
+            <div class="container">
+                <div class="listings-details-content">
+                     <h3> {{res.model}} </h3>
+                    <!--<div class="rating d-flex align-items-center">
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="rating-count">({{res.nb}})</span>
+                    </div>-->
+                    <ul class="d-flex align-items-center">
+                        <li class="phone-number">
+                            <a href="#"><i class='bx bx-phone-call'></i> {{res.telephone}}</a>
+                        </li>
+                        <!--<li class="time">
+                            <i class='bx bx-time-five'></i>
+                            <span>Currently Open</span>
+                            08:00 AM - 10:00 PM
+                        </li>-->
+                        <li class="location">
+                            <i class='bx bx-map'></i>
+                            <span>Location</span>
+                            {{res.location}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="listings-details-desc">
+                    <h3>{{res.model}}</h3>
+
+
+                    <div class="row">
+                      <div class="col-4">
+                        5.0      <i class='bx bxs-star'></i>  ({{res.nb}})
+                      </div>
+                      <div class="col-8">
+                        <div class="row">
+
+
+                          <div class="options col-6 ">
+                            <div class="row">
+                              <div class="col-4   "> <img src="assets/img/svg/siege.svg" width="37px" alt="icon"> </div>
+                              <div class="col-6"> {{res.siege}} Siege </div>
+                            </div>
+                          </div>
+
+
+                            <div class="options col-6 pb-4 pr-2">
+                              <div class="row">
+                                   <div class="col-4  ">  <img src="assets/img/svg/porte-de-voiture.svg" width="37px" alt="image">  </div>
+                                   <div class="col-6">{{res.portes}} Portes</div>
+                              </div>
+                            </div>
+
+
+                            <div class="options col-6 pb-4 pr-4">
+                               <div class="row">
+                                  <div class="col-4   "> <img src="assets/img/svg/voiture-ecologique.svg" width="37px" alt="image">  </div>
+                                  <div class="col-6">{{res.carburant}}</div>
+                                </div>
+                             </div>
+
+                             <div class="options col-6 pb-4 pr-4">
+                              <div class="row">
+                                 <div class="col-4   "> <img src="assets/img/svg/transmission.svg" width="37px" alt="image">  </div>
+                                 <div class="col-6">{{res.transmission}}</div>
+                               </div>
+                            </div>
+
+
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+
+
+
+
+                    <h3>Description</h3>
+                     {{res.description}}
+
+                    <h3>Caracteristique</h3>
+                    <ul class="row amenities-list" >
+
+
+                        <li *ngFor="let op of res.options;"><span><img src="{{op.icon}}" width="32px" alt="icon">   {{op.label}}</span></li>
+
+
+                        <!--<li><span><img src="assets/img/svg/camera.svg" width="32px" alt="icon">  2 écrans ACL à l'avant</span></li>
+                        <li><span><img src="assets/img/svg/camera.svg" width="32px" alt="icon">  Alerte de trafic routier en temps réel  </span></li>
+                        <!--<li><span>  <i class='bx bx-check'></i>  Amplificateur ordinaire 205W.  </span></li>
+                        <li><span> <img src="assets/img/svg/car-radio.svg" width="32px" alt="icon"> Radio : AM/FM stéréo </span></li>
+                        <li><span> <img src="assets/img/svg/gps.svg" width="32px" alt="icon"> GPS </span></li>
+                        <li><span><img src="assets/img/svg/car-key.svg" width="32px" alt="icon"> Accès sans clé</span></li>
+                        <li><span> <img src="assets/img/svg/usb.svg" width="32px" alt="icon"> Port USB</span></li>
+                        <li><span> <img src="assets/img/svg/siege.svg" width="32px" alt="icon">  Sièges chauffants</span></li>
+                        <li><span> <img src="assets/img/svg/bluetooth.svg" width="32px" alt="icon"> Bluetooth</span></li>
+                        <li><span> <img src="assets/img/svg/camera.svg" width="32px" alt="icon">   Caméra de recul</span></li>
+                       <!-- <li><span><img src="assets/img/svg/transmission.svg" width="42px" alt="icon">Transmission automatique</span></li>
+                      <li><span> <img src="assets/img/svg/play.svg" width="22px" alt="icon"> Apple CarPlay</span></li>-->
+                    </ul>
+                    <h3>Gallery</h3>
+                    <div id="gallery">
+                        <div class="gallery-slides">
+                         <!-- <img [src]="res.gallerie" alt="image">-->
+                            <owl-carousel-o [options]="customOptions">
+                                <ng-template carouselSlide *ngFor="let Image of res.galleries;">
+                                    <div class="single-image-box">
+                                      <img [src]="Image.path" alt="image">
+                                    </div>
+                                </ng-template>
+                            </owl-carousel-o>
+                        </div>
+                        <div class="gallery-slides">
+                          <!-- <img [src]="res.gallerie" alt="image">-->
+                             <owl-carousel-o [options]="res.gallerie">
+                                 <ng-template carouselSlide *ngFor="let Image of res.galleries;">
+                                     <div class="single-image-box">
+                                       <img [src]="Image.path" alt="image">
+                                     </div>
+                                 </ng-template>
+                             </owl-carousel-o>
+                         </div>
+                    </div>
+
+                    <!--<h3>Review</h3>
+                    <div class="listings-review">
+                        <div class="rating d-flex align-items-center">
+                            <span class="bx bxs-star checked"></span>
+                            <span class="bx bxs-star checked"></span>
+                            <span class="bx bxs-star checked"></span>
+                            <span class="bx bxs-star checked"></span>
+                            <span class="bx bxs-star checked"></span>
+
+                            <span class="overall-rating">5.0</span>
+                            <span class="rating-count">(5 reviews)</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="row m-0">
+                                    <div class="side">
+                                        <div>Cleanliness</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>4.0</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>Accuracy</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>5.0</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>Location</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>5.0</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="row m-0">
+                                    <div class="side">
+                                        <div>Check-in</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>4.0</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>Communication</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>5.0</div>
+                                    </div>
+
+                                    <div class="side">
+                                        <div>Value</div>
+                                    </div>
+                                    <div class="middle">
+                                        <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="side right">
+                                        <div>5.0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="write-a-review">
+                        <h4>Tell people what you think.</h4>
+                        <p>Help others by sharing your experience with this business.</p>
+                        <a routerLink="/single-listings" class="default-btn">Write A Review</a>
+                    </div>
+                    <div id="review">
+                        <div class="listings-review-comments">
+                            <div class="user-review">
+                                <div class="row m-0">
+                                    <div class="col-lg-4 col-md-4 p-0">
+                                        <div class="user">
+                                            <div class="d-flex">
+                                                <img [src]="res.user_photo" alt="image">
+                                                <div class="title">
+                                                    <h4>res.user</h4>
+                                                    <span>{{res.location}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 p-0">
+                                        <div class="comments">
+                                            <div class="rating">
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus vel facilisis.</p>
+                                            <div class="row m-0">
+                                                <div class="col-lg-8 col-md-8 col-8 col-sm-8 p-0">
+                                                    <ul class="like-unlike">
+                                                        <li><a routerLink="/single-listings">Like</a></li>
+                                                        <li><a routerLink="/single-listings">Unlike</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-4 col-sm-4 p-0 text-right">
+                                                    <a routerLink="/single-listings">Comment</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-review">
+                                <div class="row m-0">
+                                    <div class="col-lg-4 col-md-4 p-0">
+                                        <div class="user">
+                                            <div class="d-flex">
+                                                <img src="assets/img/user2.jpg" alt="image">
+                                                <div class="title">
+                                                    <h4>Sarah Taylor</h4>
+                                                    <span>New York, USA</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 p-0">
+                                        <div class="comments">
+                                            <div class="rating">
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus vel facilisis.</p>
+                                            <div class="row m-0">
+                                                <div class="col-lg-8 col-md-8 col-8 col-sm-8 p-0">
+                                                    <ul class="like-unlike">
+                                                        <li><a routerLink="/single-listings">Like</a></li>
+                                                        <li><a routerLink="/single-listings">Unlike</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-4 col-sm-4 p-0 text-right">
+                                                    <a routerLink="/single-listings">Comment</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-review">
+                                <div class="row m-0">
+                                    <div class="col-lg-4 col-md-4 p-0">
+                                        <div class="user">
+                                            <div class="d-flex">
+                                                <img src="assets/img/user3.jpg" alt="image">
+                                                <div class="title">
+                                                    <h4>Jason Smith</h4>
+                                                    <span>New York, USA</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 p-0">
+                                        <div class="comments">
+                                            <div class="rating">
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                                <span class="bx bxs-star checked"></span>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus vel facilisis.</p>
+                                            <div class="row m-0">
+                                                <div class="col-lg-8 col-md-8 col-8 col-sm-8 p-0">
+                                                    <ul class="like-unlike">
+                                                        <li><a routerLink="/single-listings">Like</a></li>
+                                                        <li><a routerLink="/single-listings">Unlike</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-4 col-sm-4 p-0 text-right">
+                                                    <a routerLink="/single-listings">Comment</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="add-review">
+                        <div class="review-form-wrapper">
+                            <h3>Add A Review</h3>
+                            <p class="comment-notes">Your email address will not be published. Required fields are marked <span>*</span></p>
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="sub-ratings">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Cleanliness</h4>
+                                                        <div class="cleanliness-rating">
+                                                            <input type="radio" id="cleanlinessStar5" name="cleanliness-rating" value="5" /><label for="cleanlinessStar5"></label>
+                                                            <input type="radio" id="cleanlinessStar4" name="cleanliness-rating" value="4" /><label for="cleanlinessStar4"></label>
+                                                            <input type="radio" id="cleanlinessStar3" name="cleanliness-rating" value="3" /><label for="cleanlinessStar3"></label>
+                                                            <input type="radio" id="cleanlinessStar2" name="cleanliness-rating" value="2" /><label for="cleanlinessStar2"></label>
+                                                            <input type="radio" id="cleanlinessStar1" name="cleanliness-rating" value="1" /><label for="cleanlinessStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Accuracy</h4>
+                                                        <div class="accuracy-rating">
+                                                            <input type="radio" id="accuracyStar5" name="accuracy-rating" value="5" /><label for="accuracyStar5"></label>
+                                                            <input type="radio" id="accuracyStar4" name="accuracy-rating" value="4" /><label for="accuracyStar4"></label>
+                                                            <input type="radio" id="accuracyStar3" name="accuracy-rating" value="3" /><label for="accuracyStar3"></label>
+                                                            <input type="radio" id="accuracyStar2" name="accuracy-rating" value="2" /><label for="accuracyStar2"></label>
+                                                            <input type="radio" id="accuracyStar1" name="accuracy-rating" value="1" /><label for="accuracyStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Location</h4>
+                                                        <div class="location-rating">
+                                                            <input type="radio" id="locationStar5" name="location-rating" value="5" /><label for="locationStar5"></label>
+                                                            <input type="radio" id="locationStar4" name="location-rating" value="4" /><label for="locationStar4"></label>
+                                                            <input type="radio" id="locationStar3" name="location-rating" value="3" /><label for="locationStar3"></label>
+                                                            <input type="radio" id="locationStar2" name="location-rating" value="2" /><label for="locationStar2"></label>
+                                                            <input type="radio" id="locationStar1" name="location-rating" value="1" /><label for="locationStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Check-in</h4>
+                                                        <div class="checkin-rating">
+                                                            <input type="radio" id="checkInStar5" name="rating" value="5" /><label for="checkInStar5"></label>
+                                                            <input type="radio" id="checkInStar4" name="rating" value="4" /><label for="checkInStar4"></label>
+                                                            <input type="radio" id="checkInStar3" name="rating" value="3" /><label for="checkInStar3"></label>
+                                                            <input type="radio" id="checkInStar2" name="rating" value="2" /><label for="checkInStar2"></label>
+                                                            <input type="radio" id="checkInStar1" name="rating" value="1" /><label for="checkInStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Communication</h4>
+                                                        <div class="communication-rating">
+                                                            <input type="radio" id="communicationStar5" name="communication-rating" value="5" /><label for="communicationStar5"></label>
+                                                            <input type="radio" id="communicationStar4" name="communication-rating" value="4" /><label for="communicationStar4"></label>
+                                                            <input type="radio" id="communicationStar3" name="communication-rating" value="3" /><label for="communicationStar3"></label>
+                                                            <input type="radio" id="communicationStar2" name="communication-rating" value="2" /><label for="communicationStar2"></label>
+                                                            <input type="radio" id="communicationStar1" name="communication-rating" value="1" /><label for="communicationStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                    <div class="add-sub-rating">
+                                                        <h4>Value</h4>
+                                                        <div class="value-rating">
+                                                            <input type="radio" id="valueStar5" name="value-rating" value="5" /><label for="valueStar5"></label>
+                                                            <input type="radio" id="valueStar4" name="value-rating" value="4" /><label for="valueStar4"></label>
+                                                            <input type="radio" id="valueStar3" name="value-rating" value="3" /><label for="valueStar3"></label>
+                                                            <input type="radio" id="valueStar2" name="value-rating" value="2" /><label for="valueStar2"></label>
+                                                            <input type="radio" id="valueStar1" name="value-rating" value="1" /><label for="valueStar1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name *">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <textarea placeholder="Your review" class="form-control" cols="30" rows="6"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <p class="comment-form-cookies-consent">
+                                            <input type="checkbox" id="test1">
+                                            <label for="test1">Save my name, email, and website in this browser for the next time I comment.</label>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <button type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>-->
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="listings-sidebar">
+                <div class="listings-widget listings_contact_details ">
+                  <h3>{{res.Price_H}}$/Heur - {{res.Price_D}}$/Jour </h3>
+                  <div class="row pb-3 pt-3">
+                    <div class="field col-12 md:col-4">
+                      <label for="range" style="color:blueviolet" >Date de Début - Date de Fin</label>
+                      <p-calendar [minDate]="minDate"   [inputStyle]="{'width':'400px'}"   [showTime]="true"  [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" inputId="range"(onSelect)="onselectstart(rangeDates)" ></p-calendar>
+                  </div>
+                  </div>
+                  <!--<div class="row pb-3">
+                     <label class="pb-2 " style="color:blueviolet">Début</label>
+                     <p-calendar [minDate]="minDate"  [showTime]="true" inputId="time" [showIcon]="false" (onSelect)="onselectstart(start)" [(ngModel)]="start"></p-calendar>
+
+                  </div>
+
+
+
+                  </div>
+                    <div class="row pb-3">
+                    <label class="pb-2" style="color:blueviolet">Fin</label>
+                    <p-calendar [minDate]="minendDate"   [showTime]="true" inputId="time" [showIcon]="false" placeholder ="04/05/2022 01:20" (onSelect)="onselectend(end)"  [(ngModel)]="end"></p-calendar>
+
+                 </div>-->
+
+                 <div class="row  pb-3">
+
+                  <span class="pb-2 " style="color:blueviolet">Lieu de prise en charge et de retour</span>
+
+               </div>
+               <ul>
+               <li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Pay With</span>
+                    <div class="payment-method">
+                        <img src="assets/img/payment/img1.png" class="shadow" alt="image">
+                        <img src="assets/img/payment/img2.png" class="shadow" alt="image">
+                        <img src="assets/img/payment/img3.png" class="shadow" alt="image">
+                        <img src="assets/img/payment/img4.png" class="shadow" alt="image">
+                    </div>
+                </div>
+            </li>
+          </ul>
+               <div class="btn-box" *ngIf="!user">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#loginRegisterModal" class="default-btn"><i class="flaticon-user"></i>Continuer<span></span></a>
+                <p>You must <a href="#" data-bs-toggle="modal" data-bs-target="#loginRegisterModal">login</a> before register event.</p>
+            </div>
+
+            <div class="btn-box" *ngIf="user">
+
+              <button (click)="reservation()"type="button"  class="default-btn"><i class="flaticon-user"></i>Continuer<span></span></button>
+              <!--<a (onClick)="reservation();"  class="default-btn"><i class="flaticon-user"></i>Continuer<span></span></a>
+              --></div>
+
+
+              </div>
+                </div>
+              <div class="listings-sidebar">
+
+                <div class="listings-widget listings_contact_details">
+                    <h3>Contact Details</h3>
+                    <ul>
+                        <li><i class='bx bx-globe'></i> <a href="https:/smartegy.ca" target="_blank">{{res.user}}</a></li>
+                        <li><i class='bx bx-phone-call'></i> <a href="tel:+2122791456">{{res.telephone}}</a></li>
+                        <li><i class='bx bx-directions'></i> <a href="#" target="_blank">Get Directions</a></li>
+                        <li><i class='bx bx-map'></i> {{res.address}}</li>
+                    </ul>
+                </div>
+                <div class="listings-widget listings_author">
+                    <h3>Hote</h3>
+                    <div class="author">
+                        <div class="d-flex align-items-center">
+                            <img src={{res.user_photo}} alt="image">
+                            <div class="title">
+                                <h4><a href="#">{{res.user}}</a></h4>
+                                <span>{{res.nb}} voyages</span>
+                            </div>
+                        </div>
+                        <div class="author-profile">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5 col-md-5">
+                                    <a routerLink="/user-profile/{{user}}" class="view-profile">View Profile</a>
+                                </div>
+
+                                <!-- social media
+                                  <div class="col-lg-7 col-md-7">
+                                    <ul class="social">
+                                        <li><a href="#" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                                    </ul>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Listings Details Area -->
+
+<app-footer-style-two></app-footer-style-two>
