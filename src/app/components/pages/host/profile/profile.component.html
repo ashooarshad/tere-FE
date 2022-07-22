@@ -1,0 +1,318 @@
+<app-sidemenu></app-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-navbar></app-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="my-profile-box">
+                <h3>Profile Details</h3>
+
+
+                <p-toast></p-toast>
+
+
+                <div class="row">
+                  <form #f="ngForm" >
+                  <div class="col-lg-12 col-md-12">
+                      <div class="form-group profile-box">
+                          <img src={{image}} alt="image">
+                          <div class="file-upload">
+
+                              <input type="file" name="logo" id="file" class="form-control" (change)="fileEvent($event)" />
+
+                          </div>
+
+                      </div></div>
+                      <!--<button type="submit" class="inputfile" (click)="updatephoto()">Save Change</button>-->
+                    </form>
+                  </div>
+
+                        <form (ngSubmit)="saveChange()">
+                        <div class="row">
+
+                          <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Username *</label>
+                                <input type="Text" class="form-control"  name="username" [(ngModel)]="User.username">
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                          <div class="form-group">
+                              <label>Nom *</label>
+                              <input type="Text" class="form-control"  name="lastname" [(ngModel)]="User.lastname">
+                          </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label>Prenom *</label>
+                            <input type="Text" class="form-control" name="firstname" [(ngModel)]="User.firstname">
+                        </div>
+                    </div>
+
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" class="form-control" name="email" [(ngModel)]="User.email">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Numéro du Téléphone * </label>
+                                <input type="text" class="form-control"  name="phone" [(ngModel)]="User.phone">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Adresse *</label>
+                                <input type="text" class="form-control"  [(ngModel)]="User.address" name="address" >
+
+                              </div>
+
+
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                          <div class="form-group">
+                              <label>Ville *</label>
+                              <input type="text" class="form-control" required   name="city" [(ngModel)]="User.city">
+
+
+                          </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Code *</label>
+                            <input type="text" class="form-control"  required  name="code" [(ngModel)]="User.code"
+                            >
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                      <div class="form-group">
+                          <label>province *</label>
+                          <input type="text" class="form-control"  required  name="state" [(ngModel)]="User.state" >
+
+
+
+                      </div>
+                  </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                          <div class="form-group">
+                              <label>Date de Naissance *</label>
+
+                              <input type="date"  class="form-control" required name="date_nais" [(ngModel)]="User.date_nais"/>
+                          </div>
+                      </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control"    name="link" [(ngModel)]="User.link">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Bio</label>
+                                <textarea cols="30" rows="6" placeholder="Short description about you..." class="form-control"  name="bio" [(ngModel)]="User.bio" ></textarea>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Facebook URL</label>
+                                <input type="text" class="form-control" placeholder="https://www.facebook.com/">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Twitter URL</label>
+                                <input type="text" class="form-control" placeholder="https://twitter.com/">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Linkedin URL</label>
+                                <input type="text" class="form-control" placeholder="https://www.linkedin.com/">
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Instagram URL</label>
+                                <input type="text" class="form-control" placeholder="https://instagram.com/">
+                            </div>
+                        </div>-->
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <button type="submit">Save Change</button>
+                                <p-toast></p-toast>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-6 col-md-12">
+            <div class="my-profile-box">
+                <h3>Verification des données</h3>
+
+                <form (ngSubmit)="updatepermis()">
+                    <div class="row">
+                                <label>photo front</label>
+                                <div class="col-8">  
+                                    <p>ajouter une photo claire de vous avec votre permis </p>  </div>
+                                    <div class="col-4">
+                                        <br><br>
+                                <div class="form-group profile-box ">
+                                    <div class="file-upload">
+                                        <input type="file" name="photo" id="file" class="inputfile" (change)="photo1($event)"/>
+                                        <label for="file">Upload Photo</label>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <label>photo back</label>
+                                <div class="col-8">
+                                    <p>ajouter une photo claire de vous avec votre permis </p></div>
+                                    <div class="col-4">
+                                        <br><br>
+                                    <div class="form-group profile-box">
+                                        <div class="file-upload">
+                                            <input type="file" name="photo" id="file" class="inputfile" (change)="photo2($event)"/>
+                                            <label for="file"> Upload Photo</label>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                  <!--     <h3>methode de paiement</h3>
+                                        <div class="col-xl-6 col-lg-12 col-md-12">
+                                        <div class="form-group">                                      
+                                            <label for="class">Card Holder Name</label>
+                                            <input type="text" required pInputText > 
+                                        </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lg-12 col-md-12">
+                                       <div class="form-group">  
+                                            <label id="number" for="lastname">Number</label>
+                                            <p-inputMask inputId="number" mask="9999-9999-9999-9999" ></p-inputMask>
+                                        </div>
+                                        </div>
+
+
+
+                                          <div class="col-xl-6 col-lg-12 col-md-12">
+                                       <div class="form-group">  
+                                            <label id="date" for="date">Date</label>
+                                            <p-inputMask inputId="date" mask="99/99" ></p-inputMask>
+                                        </div>
+                                        </div>
+
+
+                                       
+                                          <div class="col-xl-6 col-lg-12 col-md-12">
+                                       <div class="form-group">  
+                                            <label for="cvv">CVV</label>
+                                            <p-inputMask id="cvv" mask="999" ></p-inputMask>
+                                        </div>
+                                        </div>  -->
+
+
+                                      
+             
+
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <button type="submit">valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="my-profile-box">
+                <h3>Change Password</h3>
+
+                <form>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" class="form-control" >
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <button type="submit">Change Password</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+<!-- End Main Content Wrapper Area -->

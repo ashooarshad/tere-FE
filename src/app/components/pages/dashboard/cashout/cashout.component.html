@@ -1,0 +1,67 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="bookings-listings-box">
+        <h3>Cashout Demands</h3>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Details</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="ready">
+                    <tr *ngFor="let cashout of cashouts;">
+                        <td class="name">
+                            <img src="assets/img/user1.jpg" alt="image">
+                            <div class="info">
+                                <span>{{cashout.user?.firstname? cashout.user?.firstname + ' ' + cashout.user?.lastname: 'TEST TEST'}}</span>
+                            </div>
+                        </td>
+
+                        <td class="details">
+                            <h4>Amount: ${{cashout?.amount}} <span class="bookings-status pending">{{cashout?.cashout_status}}</span></h4>
+                            <ul>
+                                <li>
+                                    <div>Transaction ID: <span>{{cashout?.transaction_id ? cashout?.transaction_id : '--'}}</span></div>
+                                    <div>Order Number: <span>{{cashout?.order_number ? cashout?.order_number : '--'}}</span></div>
+                                </li>
+                            </ul>
+                        </td>
+
+                        <td class="action">
+                            <a *ngIf="cashout?.cashout_status == 'Pending'" href="javascript:;" (click)="validateCashout(cashout.id)" class="default-btn"><i class='bx bx-check-circle'></i>Validate Cashout</a>
+                            <a *ngIf="cashout?.cashout_status == 'Validated'" href="javascript:;" class="default-btn"><i class='bx bx-check-circle'></i>Validated</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->
